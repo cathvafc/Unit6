@@ -77,7 +77,7 @@ namespace M1_Project
            
             string leapYear = "El meu any de naixement no és de traspàs";
 
-            if (IsLeapYear(1996))
+            if (IsLeapYear(añoNacimiento))
                 leapYear = "El meu any de naixement és de traspàs";
 
             Console.WriteLine(fullName + "\n" + fullDate + "\n" + leapYear);
