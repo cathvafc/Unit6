@@ -8,9 +8,15 @@ namespace M1_Project
         
         static void Main(string[] args)
         {
-            //Fase1();
+            Fase1();
+
+            Console.WriteLine("\n\n\n");
 
             Fase2CalculoAñoTraspaso();
+
+            Console.WriteLine("\n\n\n");
+
+            Fase3();
         }
 
         public static void Fase1()
@@ -31,18 +37,50 @@ namespace M1_Project
             int añoNacimiento = 1996;
             int cadaCuanto = 4;
             int cuantosAñosHay = 0;
-     
+
+            string notALeapYear = " is not a Leap Year";
+            string aLeapYear = " is  a Leap Year";
+
+
             for (int year = AÑOTRASPASO; year <= añoNacimiento;year++) // incluimos el 1996.
             {
                 if (DateTime.IsLeapYear(year))
                 {
                     cuantosAñosHay++;
+                    Console.WriteLine("{0}" + aLeapYear, year);
+                }
+                else
+                {
+                    Console.WriteLine("{0}" + notALeapYear, year);
                 }
             }
+            Console.WriteLine("The total of leap years is: {0}",cuantosAñosHay );
+        
+        }
+        public static bool IsLeapYear(int year)
+        {
+            return DateTime.IsLeapYear(year);
+        }
 
-            Console.WriteLine("Entre el {0} y {1} hay {2} años de traspaso.", añoNacimiento, AÑOTRASPASO, cuantosAñosHay);
+        public static void Fase3()
+        {
+            string nom = "Miguel Angel";
+            string cognom1 = " Gómez";
+            string cognom2 = " López";
+            int dia = 30;
+            int mes = 12;
+            int any = 2020;
+            int añoNacimiento = 1996;
 
+            string fullName = "El meu nom es " + nom + cognom1 + cognom2;
+            string fullDate = "Vaig néixer el " + dia + "/" + mes + "/" + any;
            
+            string leapYear = "El meu any de naixement no és de traspàs";
+
+            if (IsLeapYear(1996))
+                leapYear = "El meu any de naixement és de traspàs";
+
+            Console.WriteLine(fullName + "\n" + fullDate + "\n" + leapYear);
         }
     }
 }
