@@ -15,6 +15,8 @@ namespace M2_Project
         public static void Fase2()
         {
             List<char> nombre = new List<char>();
+            List<char> cognom = new List<char>(); //Fase 4
+            List<char> fullName = new List<char>(); //Fase 4
             Dictionary<char, int> mapCharacters = new Dictionary<char, int>();
 
             nombre.Add('M');
@@ -24,6 +26,17 @@ namespace M2_Project
             nombre.Add('E');
             nombre.Add('L');
 
+            cognom.Add('G');
+            cognom.Add('O');
+            cognom.Add('M');
+            cognom.Add('E');
+            cognom.Add('Z');
+
+            fullName.AddRange(nombre);
+            fullName.Add(' ');
+            fullName.AddRange(cognom);
+
+            Fase4(fullName);
 
             foreach (char character in nombre)
             {
@@ -67,5 +80,16 @@ namespace M2_Project
                 mapCharacters.Add(character, 1);
             }
         }
+
+        public static void Fase4(List<char> fullName)
+        { 
+        foreach(char character in fullName)
+            {
+                Console.Write("{0} ", character);
+            }
+
+            Console.Write("\n");
+        }
+
     }
 }
