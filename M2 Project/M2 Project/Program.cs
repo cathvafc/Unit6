@@ -8,12 +8,14 @@ namespace M2_Project
     {
         static void Main(string[] args)
         {
+            
             Fase2();
         }
 
         public static void Fase2()
         {
             List<char> nombre = new List<char>();
+            Dictionary<char, int> mapCharacters = new Dictionary<char, int>();
 
             nombre.Add('M');
             nombre.Add('I');
@@ -36,11 +38,33 @@ namespace M2_Project
                     {
                         Console.WriteLine("CONSONANT");
                     }
+
+                    Fase3(character, ref mapCharacters);
+
                 }
                 else
                 {
                     Console.WriteLine("Els noms de persones no contenen números!");
                 }
+
+            }
+
+            foreach (KeyValuePair<char, int> character in mapCharacters)
+            {
+                Console.WriteLine("The char {0} appears {1} times on my name ", character.Key, character.Value);
+            }
+
+        }
+
+        public static void Fase3 (char character, ref Dictionary<char, int> mapCharacters)
+        {
+            if (mapCharacters.ContainsKey(character))
+            {
+                mapCharacters[character] += 1;
+            }
+            else
+            {
+                mapCharacters.Add(character, 1);
             }
         }
     }
