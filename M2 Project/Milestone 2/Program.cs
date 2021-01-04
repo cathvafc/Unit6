@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Milestone_2
 {
@@ -9,6 +11,8 @@ namespace Milestone_2
             Console.WriteLine("Hello World!");
 
             CreateLadder();
+
+            CreatePyramid();
         }
 
         public static void CreateLadder()
@@ -31,5 +35,52 @@ namespace Milestone_2
                 Console.Write("\n");
             }
         }
+
+        public static void CreatePyramid()
+        {
+
+        inicio:
+            Console.WriteLine("Introduce the height of the pyramid: ");
+            try
+            {
+                int nivel = int.Parse(Console.ReadLine());
+
+                if (nivel != 0)
+                {
+
+                    int a;
+                    int espacios;
+                    for (int i = 1; i <= nivel; i++)
+                    {
+                        StringBuilder final = new StringBuilder();
+
+                        espacios = nivel - i;
+                        a = i + (i - 1);
+                        for (int i1 = nivel; i1 > espacios; i1--)
+                            final.Append(" ");
+
+                        for (int i2 = (nivel * 2); i2 > a; i2--)
+                            final.Append("*");
+
+                        Console.WriteLine(final.ToString());
+
+                    }
+                }
+                else
+                {
+                    System.Console.Clear();
+                    goto inicio;
+                }
+
+            }
+            catch (Exception)
+            {
+                System.Console.Clear();
+                Console.WriteLine("Please, use only integer numbers");
+                goto inicio;
+
+            }
+        }
     }
+        
 }
